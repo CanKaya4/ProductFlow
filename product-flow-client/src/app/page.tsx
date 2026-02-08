@@ -7,6 +7,9 @@ import Link from 'next/link';
 export default function HomePage() {
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
+    const handleProductDeleted = (id: number) => {
+        setProducts(prev => prev.filter(p => p.id !== id));
+    };
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -40,7 +43,7 @@ export default function HomePage() {
                     <p className="text-xl font-semibold">Yükleniyor...</p>
                 </div>
             ) : (
-                <ProductTable products={products} />
+               <ProductTable products={products} onProductDeleted={handleProductDeleted} />
             )}
         </main>
     );
