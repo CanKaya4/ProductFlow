@@ -9,6 +9,6 @@ namespace ProductFlowServer.DTO.ProductDtos
         public string Name { get; set; }
         public string ProductCode { get; set; }
         public decimal Price { get; set; }
-        public int StockQuantity { get; set; }
+        public int Quantity { get; set; }
     }
 }
