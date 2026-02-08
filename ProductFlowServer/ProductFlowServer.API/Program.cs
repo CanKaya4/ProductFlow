@@ -21,6 +21,15 @@ builder.Services.AddSwaggerGen(c =>
         Description = "FullStack Developer - 1. Aþama Task"
     });
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowNextjsApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")  
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -34,7 +43,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("AllowNextjsApp");
 app.UseAuthorization();
 
 app.MapControllers();
