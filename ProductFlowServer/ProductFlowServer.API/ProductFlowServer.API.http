@@ -1,0 +1,6 @@
+@ProductFlowServer.API_HostAddress = http://localhost:5023
+
+GET {{ProductFlowServer.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
