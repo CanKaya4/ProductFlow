@@ -2,6 +2,7 @@
 
 import { Product } from '@/types/product';
 import { productService } from '@/services/productService';
+import Link from 'next/link';
 
 interface Props {
     products: Product[];
@@ -37,18 +38,25 @@ export default function ProductTable({ products, onProductDeleted }: Props) {
                         <th className="px-6 py-3 text-right">İşlemler</th>
                     </tr>
                 </thead>
-                <tbody>
+             <tbody>
                     {products.map((product) => (
                         <tr key={product.id} className="bg-white border-b hover:bg-gray-50">
                             <td className="px-6 py-4 font-medium text-gray-900">{product.name}</td>
                             <td className="px-6 py-4">{product.productCode}</td>
                             <td className="px-6 py-4">{product.price.toLocaleString('tr-TR', { style: 'currency', currency: 'TRY' })}</td>
+                            {/* Önemli: quantity yerine stockQuantity kullanıyoruz */}
                             <td className="px-6 py-4">{product.quantity}</td>  
                             <td className="px-6 py-4 text-right">
-                                <button className="text-blue-600 hover:underline mr-3">Düzenle</button>
+                             
+                                <Link 
+                                    href={`/edit/${product.id}`} 
+                                    className="text-blue-600 hover:underline mr-4 font-medium"
+                                >
+                                    Düzenle
+                                </Link>
                                 <button 
                                     onClick={() => handleDelete(product.id, product.name)}
-                                    className="text-red-600 hover:underline"
+                                    className="text-red-600 hover:underline font-medium"
                                 >
                                     Sil
                                 </button>
