@@ -37,9 +37,13 @@ namespace ProductFlowServer.API.Controllers
             await _productService.AddAsync(productCreateDto);
             return StatusCode(201);
         }
-        [HttpPut]
-        public async Task<IActionResult> Update(ProductUpdateDto productUpdateDto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] ProductUpdateDto productUpdateDto)
         {
+            if (id != productUpdateDto.Id)
+            {
+                return BadRequest("ID uyuşmazlığı!");
+            }
             await _productService.UpdateAsync(productUpdateDto);
             return NoContent();
         }
