@@ -10,6 +10,7 @@ export default function ProductTable({ products }: Props) {
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th className="px-6 py-3">Ürün Adı</th>
+                         <th className="px-6 py-3">Ürün Kodu</th>
                         <th className="px-6 py-3">Fiyat</th>
                         <th className="px-6 py-3">Stok</th>
                         <th className="px-6 py-3 text-right">İşlemler</th>
@@ -19,6 +20,7 @@ export default function ProductTable({ products }: Props) {
                     {products.map((product) => (
                         <tr key={product.id} className="bg-white border-b hover:bg-gray-50">
                             <td className="px-6 py-4 font-medium text-gray-900">{product.name}</td>
+                              <td className="px-6 py-4 font-medium text-gray-900">{product.productCode}</td>
                             <td className="px-6 py-4">{product.price.toLocaleString('tr-TR', { style: 'currency', currency: 'TRY' })}</td>
                             <td className="px-6 py-4">{product.quantity}</td>
                             <td className="px-6 py-4 text-right">
