@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ProductFlowServer.DataAccess.Abstract;
+using ProductFlowServer.DataAccess.Concrete;
 using ProductFlowServer.DataAccess.Context;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,7 @@ namespace ProductFlowServer.DataAccess
             {
                 opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             return services;
         }
     }
