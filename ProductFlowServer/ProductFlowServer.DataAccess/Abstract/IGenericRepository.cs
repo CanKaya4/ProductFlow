@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ProductFlowServer.DataAccess.Repository
+namespace ProductFlowServer.DataAccess.Abstract
 {
     public interface IGenericRepository<T> where T : class
     {

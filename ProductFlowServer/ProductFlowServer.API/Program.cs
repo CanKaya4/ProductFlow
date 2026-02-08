@@ -1,10 +1,12 @@
 using ProductFlowServer.DataAccess;
+using ProductFlowServer.Business;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
 builder.Services.AddDataAccessServices(builder.Configuration);
+builder.Services.AddBusinessServices(builder.Configuration);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
