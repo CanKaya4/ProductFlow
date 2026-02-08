@@ -1,1 +1,7 @@
-<Solution />
+<Solution>
+  <Project Path="ProductFlowServer.API/ProductFlowServer.API.csproj" />
+  <Project Path="ProductFlowServer.Business/ProductFlowServer.Business.csproj" />
+  <Project Path="ProductFlowServer.DataAccess/ProductFlowServer.DataAccess.csproj" />
+  <Project Path="ProductFlowServer.DTO/ProductFlowServer.DTO.csproj" />
+  <Project Path="ProductFlowServer.Entities/ProductFlowServer.Entities.csproj" />
+</Solution>
