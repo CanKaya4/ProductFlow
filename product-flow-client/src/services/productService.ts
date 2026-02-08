@@ -16,7 +16,8 @@ export const productService = {
         await axios.post(`${API_URL}/products`, product);
     },
     update: async (product: ProductUpdateDto): Promise<void> => {
-        await axios.put(`${API_URL}/products`, product);
+        
+        await axios.put(`${API_URL}/products/${product.id}`, product);
     },
     delete: async (id: number): Promise<void> => {
         await axios.delete(`${API_URL}/products/${id}`);
